@@ -1,28 +1,15 @@
 # Cuckoo-Clock
-Arduino Controlled Cuckoo Clock
 
-This project came about after my Nana's old Cuckoo Clock stopped working day.
+Forked from R-Kearney
 
-She missed the birds song and apperance every hour.
+Got a Guzzini cuckoo clock with broken electronics.
+Spare from China was more expensive then the whole clock.
 
-During my christmas Holidays I took it upon myself to fix the clock.
+Motor, speaker, trigger from clock and solenoid are directly connected to Arduino Nano and powered via 4x 1.2V battery pack.
+LDO on Arduino is omitted and battery back is directly fed to VCC.
 
+Changes to original version:
 
-The electronics in the clock were very old and had no online datasheets.
-
-I was unable to find the broken part so I decided it would be easier replace the old electronics with an Arduino Microcontroller.
-
-The Arduino would connect to the Bird out Motor, Flap wings Solenoid, Speaker and LDR.
-
-The Cuckoo sound was converted to 8-bit PCM to fit onto the Arduino's built in Memory.
-
-
-###Standard operation of the new electronics:
-
-1. If LDR indicates its Day & Hour contacts are pressed:
-2. Activate motor to send the bird out
-3. Play Cuckoo song
-4. Flap wings
-5. Play Cuckoo song
-6. Bring the Bird back in
-7. Delay for 33 minutes before being allow repeat
+-Omit the LDR and use fixed times instead. Cuckoo just works between 8am and 7pm.
+-Add power down mode to reduce power consumption (60mA without PD during idle, with PD 0.134mA!)
+-trigger of clock movement is connected to wake up Arduino
